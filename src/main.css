@@ -45,6 +45,7 @@ button,input,textarea{
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .todolist--add{
     text-align: center;

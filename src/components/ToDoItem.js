@@ -2,17 +2,13 @@ import React,{useState} from 'react';
 
 
 
-function ToDoItem(todoValue){
- 
-    function deleteToDo(todoIndex){
-        console.log("index",todoIndex);        
-    }
+function ToDoItem(props){
     return(
         <>
-        {todoValue.todoValue.map((item,index) => 
+        {props.todoValue.map((item,index) => 
             <li className="todoitem todoitem--add" key={index}>
                 <span className="todo">{item}</span>
-                <button className="btn icon icon-delete" onClick={() => {deleteToDo(index);}}>&minus;</button>
+                <button className="btn icon icon-delete" onClick={() => {props.deleteToDo(index);}}>&minus;</button>
             </li>
         )}
         </>

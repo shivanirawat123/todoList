@@ -10,9 +10,12 @@ function ToDoList(){
         event.preventDefault();
         if(value !== "") {
             setValue(value);
-            setToDoArray(toDoArray.concat(value));
+            setToDoArray([...toDoArray,value]);
             setValue('');
         }
+    }
+    function deleteToDo(currentIndex){
+        setToDoArray(toDoArray.filter((item,index) => index !== currentIndex));
     }
 
 
@@ -26,11 +29,11 @@ function ToDoList(){
                         <input className="form__input" onChange={(event) => {
                             setValue(event.target.value);
                         }} value={value} />
-                    </form>   
+                    </form> 
                 </div>
             </div>
             <ul className = "todolist todolist--item">
-            <TodoItem todoValue = {toDoArray}/>
+            <TodoItem todoValue = {toDoArray} deleteToDo ={deleteToDo}/>
             </ul>
         </div>
         </>
